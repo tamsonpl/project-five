@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | HOMELUXE Real Estate</title>
+  <meta name="description" content="View property details — photos, price, bedrooms, bathrooms, square footage and features. Schedule a tour or contact the listing agent. Demo listing.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23082653'%3E%3Cpath d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="listings">
+  <a class="sr-only" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <div class="container" style="padding-top:26px">
+      <nav class="breadcrumbs" style="color:var(--muted)" aria-label="Breadcrumb" id="breadcrumbs">
+        <a href="index.html" style="color:var(--muted)">Home</a>
+        <svg class="i" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        <a href="listings.html" style="color:var(--muted)">Listings</a>
+        <svg class="i" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        <span aria-current="page" id="bc-current"></span>
+      </nav>
+
+      <div id="notFound" class="empty-state" style="display:none;margin-top:20px">
+        <span class="icon-circle navy" id="nfIcon"></span>
+        <h3>Property not found</h3>
+        <p>This listing may have been sold, rented or removed. Browse our other demo properties instead.</p>
+        <a class="btn btn-primary btn-sm" href="listings.html">View All Properties</a>
+      </div>
+
+      <div id="detailRoot" style="display:none">
+        <div class="detail-wrap">
+          <div>
+            <div class="gallery-main" id="galleryMain" tabindex="0" role="button" aria-label="Open image gallery">
+              <img id="mainImg" src="" alt="">
+              <span class="zoom-hint">Click to enlarge</span>
+            </div>
+            <div class="gallery-thumbs" id="galleryThumbs" role="list" aria-label="Property photos"></div>
+
+            <div class="detail-title-row">
+              <div>
+                <h1 id="propTitle"></h1>
+                <div class="prop-loc"><svg class="i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="propLoc"></span></div>
+              </div>
+              <button class="save-btn" id="saveBtn"></button>
+            </div>
+
+            <div class="spec-strip" id="specStrip"></div>
+
+            <section class="detail-section">
+              <h2>About This Home</h2>
+              <div id="propDesc"></div>
+            </section>
+
+            <section class="detail-section">
+              <h2>Features &amp; Amenities</h2>
+              <ul class="feature-list" id="featureList"></ul>
+            </section>
+
+            <section class="detail-section">
+              <h2>Listing Information</h2>
+              <table class="spec-table" id="specTable"></table>
+              <p class="demo-note" style="margin-top:14px"><svg class="i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Demo listing — details are illustrative, not verified real-world information.</p>
+            </section>
+          </div>
+
+          <aside class="aside-card" aria-label="Pricing and agent">
+            <div class="aside-price" id="asidePrice"></div>
+            <form id="agentForm" novalidate>
+              <div class="form-grid" style="grid-template-columns:1fr">
+                <div class="field"><label for="af-name">Full Name <span class="req">*</span></label>
+                  <input id="af-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith"></div>
+                <div class="field"><label for="af-email">Email <span class="req">*</span></label>
+                  <input id="af-email" name="email" type="email" autocomplete="email" placeholder="jane@example.com"></div>
+                <div class="field"><label for="af-phone">Phone</label>
+                  <input id="af-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 000-0000"></div>
+                <div class="field"><label for="af-message">Message <span class="req">*</span></label>
+                  <textarea id="af-message" name="message" rows="4" placeholder="I'd like more information about this property…"></textarea></div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;margin-top:14px">Contact Agent</button>
+              <div class="form-status" role="status" aria-live="polite"></div>
+            </form>
+            <div id="agentRow"></div>
+          </aside>
+        </div>
+
+        <section class="section" aria-labelledby="related-heading" style="padding-bottom:0">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Keep Exploring</span>
+              <h2 id="related-heading" style="font-size:28px">Related Properties</h2>
+            </div>
+          </div>
+          <div class="prop-grid" id="relatedGrid" style="grid-template-columns:repeat(3,1fr)"></div>
+        </section>
+        <div style="height:72px"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/property.js"></script>
+</body>
+</html>

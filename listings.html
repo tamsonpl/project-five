@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Listings — Buy &amp; Rent | HOMELUXE Real Estate</title>
+  <meta name="description" content="Search all HOMELUXE property listings — homes for sale and rent. Filter by location, type, price, bedrooms and bathrooms, and sort by newest or price. Demo listings.">
+  <meta property="og:title" content="Property Listings | HOMELUXE Real Estate">
+  <meta property="og:description" content="Search premium homes for sale and rent.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23082653'%3E%3Cpath d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="listings">
+  <a class="sr-only" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <svg class="i" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          <span aria-current="page">Listings</span>
+        </nav>
+        <h1 id="pageHeading">All Properties</h1>
+        <p>Browse every HOMELUXE listing, or narrow things down with the filters below.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <form class="filter-panel" id="filterPanel" aria-label="Listing filters" novalidate>
+        <div class="filter-row">
+          <div class="sp-field grow">
+            <label for="f-location">Location</label>
+            <input id="f-location" type="text" placeholder="City, neighborhood or ZIP">
+          </div>
+          <div class="sp-field">
+            <label for="f-type">Property Type</label>
+            <select id="f-type">
+              <option value="">Any Type</option>
+              <option>House</option><option>Apartment</option><option>Condo</option>
+              <option>Villa</option><option>Townhouse</option><option>Land</option>
+            </select>
+          </div>
+          <div class="sp-field">
+            <label for="f-min">Min Price</label>
+            <select id="f-min"><option value="">Any</option></select>
+          </div>
+          <div class="sp-field">
+            <label for="f-max">Max Price</label>
+            <select id="f-max"><option value="">Any</option></select>
+          </div>
+          <div class="sp-field">
+            <label for="f-beds">Beds</label>
+            <select id="f-beds">
+              <option value="">Any</option><option value="1">1+</option><option value="2">2+</option>
+              <option value="3">3+</option><option value="4">4+</option><option value="5">5+</option>
+            </select>
+          </div>
+          <div class="sp-field">
+            <label for="f-baths">Baths</label>
+            <select id="f-baths">
+              <option value="">Any</option><option value="1">1+</option><option value="2">2+</option>
+              <option value="3">3+</option><option value="4">4+</option>
+            </select>
+          </div>
+        </div>
+        <div class="sp-error" id="f-error" role="alert">Minimum price cannot be higher than maximum price.</div>
+      </form>
+
+      <div class="result-bar">
+        <div>
+          <div class="result-count" id="resultCount" aria-live="polite"></div>
+          <div class="chips" id="chips"></div>
+        </div>
+        <div class="sort-wrap">
+          <label for="f-sort">Sort by</label>
+          <select id="f-sort">
+            <option value="newest">Newest first</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="featured">Featured</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="listings-grid" id="listingsGrid" aria-live="polite"></div>
+
+      <div id="emptyState" class="empty-state" style="display:none">
+        <span class="icon-circle navy" id="emptyIcon"></span>
+        <h3>No properties match your filters</h3>
+        <p>Try widening your price range or removing a filter — new demo listings are added regularly.</p>
+        <button class="btn btn-primary btn-sm" id="resetFilters">Reset All Filters</button>
+      </div>
+
+      <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
+        <button class="btn btn-outline" id="loadMore">Load More Properties</button>
+      </div>
+    </div>
+
+    <div style="height:72px"></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/listings.js"></script>
+</body>
+</html>

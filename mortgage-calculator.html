@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator | HOMELUXE Real Estate</title>
+  <meta name="description" content="Estimate your monthly mortgage payment — principal, interest, taxes and insurance — with the HOMELUXE mortgage calculator. Estimates only, not financial advice.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23082653'%3E%3Cpath d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+  <a class="sr-only" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <svg class="i" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          <span aria-current="page">Mortgage Calculator</span>
+        </nav>
+        <h1>Mortgage Calculator</h1>
+        <p>Estimate your monthly payment before you fall in love with a listing.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Mortgage calculator">
+      <div class="container calc-wrap">
+        <form class="calc-card" id="calcForm" novalidate>
+          <div class="form-grid" style="grid-template-columns:1fr">
+            <div class="field"><label for="c-price">Purchase Price ($) <span class="req">*</span></label>
+              <input id="c-price" name="price" type="number" min="10000" step="1000" value="850000" inputmode="numeric"></div>
+            <div class="field"><label for="c-down">Down Payment ($) <span class="req">*</span></label>
+              <input id="c-down" name="down" type="number" min="0" step="1000" value="170000" inputmode="numeric">
+              <div class="field-error" style="display:block;color:var(--muted)" id="downPct">—</div></div>
+            <div class="field"><label for="c-rate">Annual Interest Rate (%) <span class="req">*</span></label>
+              <input id="c-rate" name="rate" type="number" min="0.1" max="25" step="0.01" value="6.5" inputmode="decimal"></div>
+            <div class="field"><label for="c-term">Loan Term (years)</label>
+              <select id="c-term" name="term">
+                <option value="30" selected>30 years</option>
+                <option value="20">20 years</option>
+                <option value="15">15 years</option>
+                <option value="10">10 years</option>
+              </select></div>
+            <div class="field"><label for="c-tax">Annual Property Taxes ($) <span class="demo-note">(optional)</span></label>
+              <input id="c-tax" name="tax" type="number" min="0" step="100" placeholder="e.g. 9000" inputmode="numeric"></div>
+            <div class="field"><label for="c-ins">Annual Insurance ($) <span class="demo-note">(optional)</span></label>
+              <input id="c-ins" name="ins" type="number" min="0" step="100" placeholder="e.g. 1500" inputmode="numeric"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:18px">Calculate Payment</button>
+        </form>
+
+        <div class="calc-result" id="calcResult" aria-live="polite">
+          <div class="label">Estimated Monthly Payment</div>
+          <div class="amount" id="calcMonthly">—</div>
+          <div class="calc-rows">
+            <div class="calc-row"><span>Principal &amp; Interest</span><b id="calcPI">—</b></div>
+            <div class="calc-row"><span>Property Taxes</span><b id="calcTax">—</b></div>
+            <div class="calc-row"><span>Insurance</span><b id="calcIns">—</b></div>
+            <div class="calc-row"><span>Loan Amount</span><b id="calcLoan">—</b></div>
+            <div class="calc-row"><span>Total Interest (over term)</span><b id="calcTotalInterest">—</b></div>
+          </div>
+          <p class="calc-fine">This is a simplified estimate for demonstration only. Actual payments depend on your lender, credit profile, taxes and insurance. It is not a loan offer or financial advice — consult a licensed mortgage professional for guidance on your situation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
